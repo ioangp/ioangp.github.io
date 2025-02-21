@@ -1,7 +1,7 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
-const G = 0.1;
+var G = 0.1;
 
 // sun
 var s_mass = 100;
@@ -23,6 +23,10 @@ function Start(){
 	e_mass = document.getElementById('em').value;
 	e_velocity[0] = Number(document.getElementById('ex').value);
 	e_velocity[1] = Number(document.getElementById('ey').value);
+	
+	G = Number(document.getElementById('g').value);
+	e_radius = Number(document.getElementById('es').value);
+	s_radius = Number(document.getElementById('ss').value);
 	
 	s_pos = [canvas.width/2, canvas.height/2];
 	e_pos = [canvas.width/2 - 200, canvas.height/2 + 3];
