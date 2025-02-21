@@ -10,7 +10,7 @@ var s_pos = [canvas.width/2, canvas.height/2];
 
 // earth
 var e_mass = 1;
-var e_radius = 25;
+var e_radius = 15;
 var e_pos = [canvas.width/2 - 200, canvas.height/2 + 3];
 var e_velocity = [0, -3];
 
@@ -49,6 +49,9 @@ function Step(e, s) {
 	
 	e_velocity[0] += e_acc[0];
 	e_velocity[1] += e_acc[1];
+	
+	var speed = Math.sqrt(Math.pow(e_velocity[0], 2) + Math.pow(e_velocity[1], 2));
+	document.getElementById('speed').innerText = "Speed = " + speed.toFixed(2);
 	
 	// move
 	e_pos[0] += e_velocity[0];
