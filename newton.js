@@ -66,6 +66,6 @@ function Step(e, s) {
 	// earth
 	ctx.beginPath();
 	ctx.arc(e_pos[0], e_pos[1], e_radius, 0, 2 * Math.PI);
-	ctx.fillStyle = 'green';
+	ctx.fillStyle = 'blue';
 	ctx.fill();
 }
