@@ -62,10 +62,33 @@ function Step(e, s) {
 	ctx.arc(s_pos[0], s_pos[1], s_radius, 0, 2 * Math.PI);
 	ctx.fillStyle = 'yellow';
 	ctx.fill();
+	ctx.closePath();
 	
 	// earth
 	ctx.beginPath();
 	ctx.arc(e_pos[0], e_pos[1], e_radius, 0, 2 * Math.PI);
 	ctx.fillStyle = 'blue';
 	ctx.fill();
+	ctx.closePath();
+
+	// arrows
+	ctx.beginPath();
+	ctx.strokeStyle = 'orange';
+	ctx.moveTo(e_pos[0], e_pos[1]);
+	ctx.lineTo(e_pos[0] + (e_force[0]*1000), e_pos[1] + (e_force[1]*1000));
+	ctx.stroke();
+	ctx.fillStyle = 'orange';
+	ctx.font = "18px Times New Roman";
+	ctx.fillText("F", e_pos[0] + (e_force[0]*1000) + 5, e_pos[1] + (e_force[1]*1000) + 5);
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = 'cyan';
+	ctx.moveTo(e_pos[0], e_pos[1]);
+	ctx.lineTo(e_pos[0] + (e_velocity[0]*10), e_pos[1] + (e_velocity[1]*10));
+	console.log(e_velocity)
+	ctx.stroke();
+	ctx.fillStyle = 'cyan';
+	ctx.fillText("v", e_pos[0] + (e_velocity[0]*10) + 5, e_pos[1] + (e_velocity[1]*10) + 5);
+	ctx.closePath();
 }
