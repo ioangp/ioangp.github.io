@@ -32,6 +32,20 @@ function Start(){
 	e_pos = [canvas.width/2 - 200, canvas.height/2 + 3];
 }
 
+var motionTrailLength = 200;
+var positions = [];
+
+function storeLastPosition(xPos, yPos) {
+	positions.push({
+		x: xPos,
+		y: yPos
+	});
+
+	if (positions.length > motionTrailLength) {
+		positions.shift();
+	}
+}
+
 function Step(e, s) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	
@@ -56,6 +70,14 @@ function Step(e, s) {
 	// move
 	e_pos[0] += e_velocity[0];
 	e_pos[1] += e_velocity[1];
+	
+	storeLastPosition(e_pos[0], e_pos[1]);
+	for (var i = 0; i < positions.length; i++) {
+		ctx.beginPath();
+		ctx.arc(positions[i].x, positions[i].y, e_radius / 30, 0, 2 * Math.PI, true);
+		ctx.fillStyle = "black";
+		ctx.fill();
+	}
 	
 	// sun
 	ctx.beginPath();
