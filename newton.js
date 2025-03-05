@@ -14,6 +14,9 @@ var e_radius = 15;
 var e_pos = [canvas.width/2 - 200, canvas.height/2 + 3];
 var e_velocity = [0, -3];
 
+var motionTrailLength = 200;
+var positions = [];
+
 setInterval(Step, 10);
 
 var points = []
@@ -28,12 +31,11 @@ function Start(){
 	e_radius = Number(document.getElementById('es').value);
 	s_radius = Number(document.getElementById('ss').value);
 	
+	motionTrailLength = Number(document.getElementById('tl').value) * 10;
+	
 	s_pos = [canvas.width/2, canvas.height/2];
 	e_pos = [canvas.width/2 - 200, canvas.height/2 + 3];
 }
-
-var motionTrailLength = 200;
-var positions = [];
 
 function storeLastPosition(xPos, yPos) {
 	positions.push({
@@ -73,6 +75,10 @@ function Step(e, s) {
 	
 	storeLastPosition(e_pos[0], e_pos[1]);
 	for (var i = 0; i < positions.length; i++) {
+		if(motionTrailLength == 0){
+			break;
+		}
+		
 		ctx.beginPath();
 		ctx.arc(positions[i].x, positions[i].y, e_radius / 30, 0, 2 * Math.PI, true);
 		ctx.fillStyle = "black";
