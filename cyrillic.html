@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-	<div class="topbar">
-	<a href="index">Back</a>
-	<button id="theme-toggle">Toggle theme</button>
-	</div>
-	<h1>Welsh Cyrillic Translator</h1>
-	<p>A tool for converting the latin Welsh alphabet into Cyrillic and vice versa. Idea and reference <a href="https://www.omniglot.com/conscripts/welshcyrillic.htm">here</a>.</p>
-
 	<head>
 		<title>Welsh Cyrillic Translator</title>
 		<script type="text/javascript" src="js/cyrillic.js"></script>
 		<link rel="stylesheet" href="css/style.css">
+		<script src="theme_load.js"></script>
 	</head>
 	<body>
+		<div class="topbar">
+		<a href="index">Back</a>
+		<button id="theme-toggle">Toggle theme</button>
+		</div>
+		<h1>Welsh Cyrillic Translator</h1>
+		<p>A tool for converting the latin Welsh alphabet into Cyrillic and vice versa. Idea and reference <a href="https://www.omniglot.com/conscripts/welshcyrillic.htm">here</a>.</p>
 		<textarea oninput="latinChanged();" id="latin" name="story" rows="33" cols="55">Cyrilig Cymraeg</textarea>
 
 		<textarea oninput="cyrillicChanged();" id="cyrillic" name="story" rows="33" cols="55">Кърилиѓ Къмраеѓ</textarea>
