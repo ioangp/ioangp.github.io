@@ -5,7 +5,7 @@
 }
 
 :root.dark {
-  background: #111111;
+  background: #151515;
   color: #f1f1f1;
 }
 
@@ -14,6 +14,8 @@
   background: #f4f4f4;
   color: black
 }
+
+:root.dark h1 {color: white} /* There you go Mike */
 
 :root.dark a {
   color: white;
@@ -49,13 +51,15 @@ pre {
   overflow-x: auto;
 }
 
+
 h1{
   color: #E34234;
   text-align: center;
 }
 
+
 p {
-    text-align: justify;
+  text-align: justify;
 }
 
 canvas{
