@@ -1,10 +1,61 @@
+/* Light theme (default) */
+:root {
+  background: rgb(255, 248, 227);
+  color: #111111;
+}
+
+:root.dark {
+  background: #111111;
+  color: #f1f1f1;
+}
+
+:root.dark code, pre {
+  line-height: 1.4;
+  background: #f4f4f4;
+  color: black
+}
+
+:root.dark a {
+  color: white;
+}
+
+.markdown-body {
+  color: inherit;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.back, #theme-toggle {
+  padding: 4px 8px;
+}
+
 body{
-    background-color:rgb(255, 248, 227);
-    margin-left: 1%;
+  width: 60%;
+  margin: 0 auto;
+}
+
+code, pre {
+  background: #f4f4f4;
+  padding: 4px;
+}
+
+pre {
+  padding: 12px;
+  overflow-x: auto;
 }
 
 h1{
-    color: #E34234;
+  color: #E34234;
+  text-align: center;
+}
+
+p {
+    text-align: justify;
 }
 
 canvas{

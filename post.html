@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Post</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+<a href="blog">Back</a>
+<button id="theme-toggle">Toggle theme</button>
+</div>
+
+<article id="content" class="markdown-body"></article>
+
+<script>
+function getQueryParam(name) {
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+async function loadPost() {
+  const file = getQueryParam('post');
+  if (!file) {
+    document.getElementById('content').innerHTML = "<p>No file given.</p>";
+    return;
+  }
+  const res = await fetch("posts/" + file);
+  const md = await res.text();
+  const html = marked.parse(md);
+  document.getElementById('content').innerHTML = html;
+}
+
+loadPost();
+</script>
+<script src="theme.js"></script>
+</body>
+</html>
