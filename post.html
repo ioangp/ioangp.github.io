@@ -23,14 +23,59 @@ function getQueryParam(name) {
 
 async function loadPost() {
   const file = getQueryParam('post');
+  const secret = getQueryParam('secret');
   if (!file) {
     document.getElementById('content').innerHTML = "<p>No file given.</p>";
     return;
   }
   const res = await fetch("posts/" + file);
-  const md = await res.text();
+  var md = await res.text();
+  if (secret == "true") {
+    password = prompt("Password?")
+    md = await decryptText(password, md)
+  }
   const html = marked.parse(md);
   document.getElementById('content').innerHTML = html;
+}
+
+async function decryptText(password, encoded) {
+  const data = Uint8Array.from(atob(encoded), c => c.charCodeAt(0));
+
+  const salt = data.slice(0, 16);
+  const iv = data.slice(16, 28);
+  const ciphertext = data.slice(28);
+
+  const enc = new TextEncoder();
+  const dec = new TextDecoder();
+
+  const keyMaterial = await crypto.subtle.importKey(
+    "raw",
+    enc.encode(password),
+    "PBKDF2",
+    false,
+    ["deriveKey"]
+  );
+
+  const key = await crypto.subtle.deriveKey(
+    {
+      name: "PBKDF2",
+      salt,
+      iterations: 100000,
+      hash: "SHA-256"
+    },
+    keyMaterial,
+    { name: "AES-GCM", length: 256 },
+    false,
+    ["decrypt"]
+  );
+
+  const plaintext = await crypto.subtle.decrypt(
+    { name: "AES-GCM", iv },
+    key,
+    ciphertext
+  );
+
+  return dec.decode(plaintext);
 }
 
 loadPost();
