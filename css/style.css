@@ -15,10 +15,10 @@
   color: black
 }
 
-:root.dark h1 {color: white} /* There you go Mike */
+:root.dark h1 {color: #16C60C} /* There you go Mike */
 
 :root.dark a {
-  color: white;
+  color: #3B78FF;
 }
 
 .markdown-body {
