@@ -1,24 +1,42 @@
-/* Light theme (default) */
+/* Theme variables */
 :root {
-  background: rgb(255, 248, 227);
-  color: #111111;
+  --bg: #f6f1e7;
+  --text: #1f2937;
+  --heading: #E34234;
+  --subtitle: #4b5563;
+  --link: #2563eb;
+  --border: #e5e7eb;
+
+  --code-bg: #f4f4f4;
+  --code-text: black;
+
+  --button-bg: #f3f4f6;
+  --button-border: #d1d5db;
+  --button-hover: #e5e7eb;
+
+  background: var(--bg);
+  color: var(--text);
 }
 
 :root.dark {
-  background: #151515;
-  color: #f1f1f1;
+  --bg: #151515;
+  --text: #f1f1f1;
+  --heading: #f8fafc; /* There you go Mike */
+  --subtitle: #d1d5db;
+  --link: #3B78FF;
+  --border: rgba(255, 255, 255, 0.3);
+
+  --code-bg: #f4f4f4;
+  --code-text: black;
+
+  background: var(--bg);
+  color: var(--text);
 }
 
-:root.dark code, pre {
-  line-height: 1.4;
-  background: #f4f4f4;
-  color: black
-}
-
-:root.dark h1 {color: white} /* There you go Mike */
-
-:root.dark a {
-  color: #3B78FF;
+/* Layout */
+body {
+  width: 60%;
+  margin: 0 auto;
 }
 
 .markdown-body {
@@ -32,41 +50,90 @@
   margin-bottom: 1rem;
 }
 
-.back, #theme-toggle {
+.back,
+#theme-toggle {
   padding: 4px 8px;
 }
 
-body{
-  width: 60%;
-  margin: 0 auto;
+/* Typography */
+h1 {
+  color: var(--heading);
+  text-align: center;
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
 }
 
-code, pre {
-  background: #f4f4f4;
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--subtitle);
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.25rem;
+}
+
+p {
+  text-align: justify;
+}
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Code blocks */
+code,
+pre {
+  background: var(--code-bg);
+  color: var(--code-text);
   padding: 4px;
 }
 
 pre {
   padding: 12px;
   overflow-x: auto;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
-
-h1{
-  color: #E34234;
-  text-align: center;
+/* Buttons */
+button {
+  font-size: 0.9rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid var(--button-border);
+  background: var(--button-bg);
+  cursor: pointer;
 }
 
-
-p {
-  text-align: justify;
+button:hover {
+  background: var(--button-hover);
 }
 
-canvas{
-    background-color: white;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+footer {
+  margin-top: 4rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+canvas {
+  background-color: white;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
