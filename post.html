@@ -45,17 +45,18 @@ async function loadPost() {
   const res = await fetch("posts/" + file);
   var md = await res.text();
   if (secret == "true") {
-    password = prompt("Password?")
+    const password = prompt("Password?")
     md = await decryptText(password, md)
   }
   const html = marked.parse(md);
   document.getElementById('content').innerHTML = html;
 
-  MathJax.typesetPromise([content]);
+  MathJax.typesetPromise([document.getElementById('content')]);
 }
 
 async function decryptText(password, encoded) {
-  const data = Uint8Array.from(atob(encoded), c => c.charCodeAt(0));
+  const clean = encoded.replace(/\s+/g, "");
+  const data = Uint8Array.from(atob(clean), c => c.charCodeAt(0));
 
   const salt = data.slice(0, 16);
   const iv = data.slice(16, 28);
