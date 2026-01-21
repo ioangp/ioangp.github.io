@@ -4,6 +4,20 @@
 <meta charset="utf-8">
 <title>Post</title>
 <link rel="stylesheet" href="css/style.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    enableMenu: false
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="theme_load.js"></script>
 </head>
@@ -36,6 +50,8 @@ async function loadPost() {
   }
   const html = marked.parse(md);
   document.getElementById('content').innerHTML = html;
+
+  MathJax.typesetPromise([content]);
 }
 
 async function decryptText(password, encoded) {
