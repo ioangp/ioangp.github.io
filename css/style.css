@@ -1,7 +1,28 @@
 /* Theme variables */
 :root {
-  --page-bg: #f6f1e7;   /* full page */
-  --body-bg: #fffbf5;  /* content area */
+  --page-bg: #f8f8f6;
+  --body-bg: #ffffff;
+
+  --text: #222222;
+  --heading: #1c1c1c;
+  --subtitle: #5a5a5a; 
+  --link: #002f94;
+  --border: #e6e6e3;
+
+  --code-bg: #f3f4f6;  
+  --code-text: #1f2937;
+
+  --button-bg: #ffffff;
+  --button-border: #d6d6d2;
+  --button-hover: #f2f2f0;
+}
+
+/*
+Old theme: Yellowed
+
+:root {
+  --page-bg: #f6f1e7;
+  --body-bg: #fffbf5;
 
   --text: #1f2937;
   --heading: #360400;
@@ -16,6 +37,7 @@
   --button-border: #d1d5db;
   --button-hover: #fffbf5;
 }
+*/
 
 :root.dark {
   --page-bg: #151515;
@@ -33,6 +55,10 @@
 }
 
 /* Layout */
+h1, h2, h3 {
+  letter-spacing: -0.01em;
+}
+
 html {
   background: var(--page-bg);
   color: var(--text);
@@ -44,6 +70,7 @@ body {
   background: var(--body-bg);
   padding: 2rem;
   min-height: 100vh;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .markdown-body {
