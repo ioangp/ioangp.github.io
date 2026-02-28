@@ -1,11 +1,11 @@
 /* Theme variables */
 :root {
-  --page-bg: #f8f8f6;
+  --page-bg: #f7f7f7;
   --body-bg: #ffffff;
 
   --text: #222222;
   --heading: #1c1c1c;
-  --subtitle: #5a5a5a; 
+  --subtitle: #353535; 
   --link: #002f94;
   --border: #e6e6e3;
 
@@ -62,6 +62,8 @@ h1, h2, h3 {
 html {
   background: var(--page-bg);
   color: var(--text);
+
+  font-family: 'Times New Roman', Times, serif
 }
 
 body {
