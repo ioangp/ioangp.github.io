@@ -1,4 +1,5 @@
 # Hello World
+**Tags:** Placeholder
 ## Introduction
 This is a test of the `markdown` blog functionality. **Bold text**, *italic text*, and the like. Testing equations: $\frac{\text{hello world}}{\\{1,4,5\\} \\ \cap \\ \\{1,3,4\\} \\ \cup \\ \emptyset}$
 
