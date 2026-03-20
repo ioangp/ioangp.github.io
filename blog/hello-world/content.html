@@ -1,0 +1,44 @@
+<h1 id="hello-world">Hello World</h1>
+<p><strong>Tags:</strong> Placeholder</p>
+<h2 id="introduction">Introduction</h2>
+<p>This is a test of the <code>markdown</code> blog functionality. <strong>Bold text</strong>, <em>italic text</em>, and the like. Testing equations: $\frac{\text{hello world}}{\{1,4,5\} \ \cap \ \{1,3,4\} \ \cup \ \emptyset}$</p>
+<p>Inline math: $x^2 + y^2 = z^2$</p>
+<p>$$
+\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
+$$</p>
+<table>
+<thead>
+<tr>
+<th>Table</th>
+<th>Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hello</td>
+<td>250</td>
+</tr>
+<tr>
+<td>World</td>
+<td>80</td>
+</tr>
+<tr>
+<td>Hello</td>
+<td>67</td>
+</tr>
+</tbody>
+</table>
+<pre><code>async function loadPost() {
+  const file = getQueryParam('post');
+  if (!file) {
+    document.getElementById('content').innerHTML = &quot;&lt;p&gt;No file given.&lt;/p&gt;&quot;;
+    return;
+  }
+  const res = await fetch(&quot;posts/&quot; + file);
+  const md = await res.text();
+  const html = marked.parse(md);
+  document.getElementById('content').innerHTML = html;
+}
+</code></pre>
+<h2 id="epilogue">Epilogue</h2>
+<p><a href="/projects">Projects page</a></p>
