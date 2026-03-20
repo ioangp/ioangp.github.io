@@ -60,8 +60,29 @@ async function loadPost() {
     const password = prompt("Password?")
     md = await decryptText(password, md)
   }
+
+  const renderer = new marked.Renderer();
+  renderer.heading = function (token) {
+    const text = token.text;
+
+    const slug = text
+      .toLowerCase()
+      .replace(/[^\w]+/g, '-');
+
+    return `<h${token.depth} id="${slug}">${text}</h${token.depth}>`;
+  };
+  marked.setOptions({ renderer });
+
   const html = marked.parse(md);
   document.getElementById('content').innerHTML = html;
+
+  const hash = window.location.hash.slice(1);
+  if (hash) {
+    const el = document.getElementById(hash);
+    if (el) {
+      el.scrollIntoView();
+    }
+  }
 
   MathJax.typesetPromise([document.getElementById('content')]);
 }
