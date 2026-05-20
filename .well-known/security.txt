@@ -1,0 +1,15 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Contact: mailto:mail@ioanphillips.com
+Expires: 2026-11-22T14:00:00.000Z
+Encryption: http://ioanphillips.com/keys/public.asc
+Preferred-Languages: en
+Canonical: http://ioanphillips.com/.well-known/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQTSHec/bAnXJg9vKdBUjOBYCr1JgQUCaXFfKgAKCRBUjOBYCr1J
+gU5pAQDw4Y7BwS8GTxJKkvdrycfsU1TaVSmJViK5IN/6N7ZlDgD+PMl7IE8bBKf0
+0cZ8hzM8xCEaoWKMUWOdZ8b657hkJQY=
+=K+F3
+-----END PGP SIGNATURE-----
