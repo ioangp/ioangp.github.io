@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
 /* Theme variables */
 :root {
   --page-bg: #f7f7f7;
@@ -63,7 +65,9 @@ html {
   background: var(--page-bg);
   color: var(--text);
 
-  font-family: 'Times New Roman', Times, serif
+  /* font-family: 'Times New Roman', Times, serif */
+  font-family: 'Crimson Text', 'Times New Roman', Times, serif;
+  font-style: normal;
 }
 
 body {
@@ -157,6 +161,9 @@ pre {
   background: var(--code-bg);
   color: var(--code-text);
   padding: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: small;
+  font-weight: 600;
 }
 
 pre {
