@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Post</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <script>
+            window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                enableMenu: false
+            }
+            };
+            MathJax.typesetPromise();
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="/theme_load.js"></script>
+        <style>
+            .MJX_LiveRegion {
+                background-color: transparent !important;
+            }
+            .MJX_HoverRegion{
+                background-color: transparent !important;
+            }
+            .MJX_ToolTip{
+                background-color: transparent !important;
+            }
+        </style>
+    </head>
+    <body>
+
+    <div class="topbar">
+        <a href="/blog">Back</a>
+        <button id="theme-toggle">Toggle theme</button>
+    </div>
+
+    <article><h1 id="downloading-photos-from-space">Downloading Photos from Space</h1>
+<h2 id="contents">Contents</h2>
+<div class="toc">
+<ul>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#equipment">Equipment</a><ul>
+<li><a href="#hardware">Hardware</a></li>
+<li><a href="#software">Software</a></li>
+</ul>
+</li>
+<li><a href="#the-target">The Target</a></li>
+<li><a href="#construction">Construction</a></li>
+<li><a href="#receiving">Receiving</a></li>
+</ul>
+</div>
+<p>In this short post I'll describe how I went about receiving photograph data from a Meteor-M satellite using an SDR (software defined radio). I should mention I am following <a href="https://www.a-centauri.com/articoli/meteor-satellite-reception">this excellent guide</a>.</p>
+<h2 id="equipment">Equipment</h2>
+<h3 id="hardware">Hardware</h3>
+<ul>
+<li><a href="https://www.amazon.co.uk/dp/B0GHYCPQY3">https://www.amazon.co.uk/dp/B0GHYCPQY3</a></li>
+<li><a href="https://www.amazon.co.uk/dp/B0C1BFXMWD">https://www.amazon.co.uk/dp/B0C1BFXMWD</a></li>
+<li><a href="https://www.amazon.co.uk/dp/B097LDV3XS">https://www.amazon.co.uk/dp/B097LDV3XS</a></li>
+<li><a href="https://www.amazon.co.uk/dp/B01HA642SW">https://www.amazon.co.uk/dp/B01HA642SW</a></li>
+</ul>
+<h3 id="software">Software</h3>
+<ul>
+<li><a href="https://www.satdump.org/">SatDump</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=com.rtbishop.look4sat">Look4Sat</a></li>
+</ul>
+<h2 id="the-target">The Target</h2>
+<p>Meteor-M №2-4 is a member of the Russian Meteor-M series of weather satellites. This particular one was launched in February 2024. It's in a polar orbit, meaning it passes over the entirity of Earth's surface. Its ~800km altitude means it passes overhead twice a day.</p>
+<p>The satellite transmits at $137.9$ MHz. That is a wavelength of $2.18$ m, giving a total antenna length of $1.06$ m.</p>
+<p>Meteor-M №2-3 also transmits, but the guide advises that an antenna deployment failure means its signal is weak and inconsistant.</p>
+<h2 id="construction">Construction</h2>
+<p>I bought a Nooelec RTL-SDR. An RTL-SDR is a usb dongle that allows you to receive and decode a wide range of radio frequencies with a computer. To use it, I built an antenna from a banana plug and two 3mm aluminium tubes, cut to $54$ cm (half the total antenna length). When the parts came, I went to the garage to construct the antenna, with some help.</p>
+<p>The aluminium tubes were $6$ mm in diamater and $1$ m long. For each of the two tubes, we flattened the end in the vice and drilled a hole the same size as to fit on the banana plug. We bent each to 60 degrees about 20mm from the end, for a total of 120 degrees between the two ends of the antenna.</p>
+<p><img alt="" src="antenna.png" /></p>
+<p>That was enough to make the antenna. Using an adapter, I could connect the coaxial cable which then went to the RTL-SDR. The guide recommended using a filtered LNA for receiving a signal. I thought the project was expensive enough as is, so skipped it and hoped turning up the gain to max and standing in a field would be good enough (it was).</p>
+<h2 id="receiving">Receiving</h2>
+<p>I went up to a field nearby when my satellite tracker app said it would be overhead. I set up my laptop and connected the antenna, and waited for it to come overhead. From the time it came over the horizon to going down again was about 15 minutes. We had to keep the antenna pointed steadily at the spot in the sky where the satellite was, which turned out to be surprisingly difficult as it was very sensitive. But, we managed to read the signal well for the entire 15 minutes.</p>
+<p>Every so often there was a diffuse burst of signal centred around $138.4$ MHz. I couldn't figure out what was causing it, but despite the tail of the strange signal overlapping with the satellite's frequency, it didn't seem to affect the final result.</p>
+<p>I went down to the pub to process the radio data and see if we had picked up anything. What appeared was a pretty clear photo of northern Europe, taken about an hour before the satellite had come overhead. Not a bad result at all.</p>
+<p><img alt="" src="pic.png" /></p>
+<p>July 2026</p>
+<p><a href="mailto:mail@ioanphillips.com">Leave a comment</a></p></article>
+
+    <script src="/theme.js"></script>
+    <footer>
+        <p>
+        © 2026 · Built by Ioan P ·
+        <a href="https://github.com/ioangp">GitHub</a> ·
+        <a href="/pgp">PGP</a>
+        </p>
+    </footer>
+    </body>
+</html>

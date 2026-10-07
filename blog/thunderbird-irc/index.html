@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Post</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <script>
+            window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                enableMenu: false
+            }
+            };
+            MathJax.typesetPromise();
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="/theme_load.js"></script>
+        <style>
+            .MJX_LiveRegion {
+                background-color: transparent !important;
+            }
+            .MJX_HoverRegion{
+                background-color: transparent !important;
+            }
+            .MJX_ToolTip{
+                background-color: transparent !important;
+            }
+        </style>
+    </head>
+    <body>
+
+    <div class="topbar">
+        <a href="/blog">Back</a>
+        <button id="theme-toggle">Toggle theme</button>
+    </div>
+
+    <article><h1 id="setup-irc-on-thunderbird-with-a-server-password-and-sasl">Setup IRC on Thunderbird with a server password and SASL</h1>
+<p>When adding an IRC chat account to Mozilla Thunderbird, it asks for a nickname and a password. Some IRC servers use two passwords; an account password (SASL) and a server password. To register an account, you need to first get into the server using the server password.</p>
+<p>Thunderbird has only one password box and it is for the account password. This seems to make everything impossible, however there is a hidden way to add the server password to the Thunderbird config. While I recommend just using a proper IRC client, these steps seem to work for me.</p>
+<p>First, go to <code>settings -&gt; chat -&gt; styling</code> and set the theme to 'simple' (important).</p>
+<p>Then, go to <code>settings -&gt; account settings (at the bottom) -&gt; add account -&gt; chat account -&gt; IRC</code></p>
+<p>Enter the username you want and set <code>Server</code> to the server domain you're connecting to. On the next screen, leave <code>password</code> blank. Leave everything on the screen after untouched, unless the server is specifically on a different port.</p>
+<p>When you complete adding your account, it will try to connect and it will fail. Thunderbird is trying to log in with your unregistered account and never sends the actual server password. First you need to set the server password in the config.</p>
+<p>Go to <code>settings -&gt; general -&gt; config editor</code> (scroll all the way down)</p>
+<p>The account you've just created will be called <code>account1</code> in the config. In the search, type <code>messenger.account.account1.options.serverPassword</code>. Switch this to <code>String</code>, then press the add button. Type in the server's password and click save.</p>
+<p>Now you can connect. You should be in the server, but everything will be blank. Click on 'Join chat' and put in <code>general</code> (or whatever channel). In the chat box, type the command</p>
+<p><code>/msg NickServ REGISTER &lt;yourpassword&gt;</code></p>
+<p>and your account will register. You can now disconnect (in the top right you can click 'show accounts'), go to properties, and put your own password in. You now connect to the server with your account and can chat and so on. Once you're back in, you can use /list to show all channels.</p>
+<p>As I said, a dedicated IRC client is probably much better. But it's nice having one less program to download. Here's a couple resources for more on IRC:</p>
+<ul>
+<li><a href="https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md">Ergo user guide</a></li>
+<li><a href="https://fedoramagazine.org/beginners-guide-irc/">Fedora Magazine: Beginner's Guide to IRC</a></li>
+<li><a href="https://www.irchelp.org/faq/irctutorial.html">IRCHelp's IRC Tutorial</a></li>
+</ul>
+<p>7 October 2026</p>
+</article>
+
+    <script src="/theme.js"></script>
+    <footer>
+        <p>
+        © 2026 · Built by Ioan P ·
+        <a href="https://github.com/ioangp">GitHub</a> ·
+        <a href="/pgp">PGP</a>
+        </p>
+    </footer>
+    </body>
+</html>
